@@ -1,99 +1,108 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org" -->
+<!--      th:replace="layouts/main-layout :: layout('Home', ~{::section})">-->
+<!--<body>-->
+<!--    <section>-->
+<!--        &lt;!&ndash; Hero Section &ndash;&gt;-->
+<!--        <div class="bg-light py-5">-->
+<!--            <div class="container">-->
+<!--                <div class="row align-items-center">-->
+<!--                    <div class="col-md-6">-->
+<!--                        <h1 class="display-4 fw-bold">Freshland Grocery Store</h1>-->
+<!--                        <p class="lead">Your neighborhood grocery store with fresh products and friendly service.</p>-->
+<!--                        <a th:href="@{/shop}" class="btn btn-primary btn-lg">Shop Now</a>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-6">-->
+<!--                        <img th:src="@{/images/hero-grocery.jpg}" class="img-fluid rounded" alt="Freshland Store">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        -->
+<!--        &lt;!&ndash; Featured Categories &ndash;&gt;-->
+<!--        <div class="container my-5">-->
+<!--            <h2 class="text-center mb-4">Browse Categories</h2>-->
+<!--            <div class="row g-4">-->
+<!--                <div class="col-md-4" th:each="category : ${categories}" th:if="${categoryStat.index < 3}">-->
+<!--                    <div class="card h-100 shadow-sm category-card">-->
+<!--                        <div class="card-body text-center">-->
+<!--                            <i class="bi bi-basket fs-1 text-primary mb-3"></i>-->
+<!--                            <h5 class="card-title" th:text="${category.name}">Category Name</h5>-->
+<!--                            <p class="card-text" th:text="${category.description}">Category description here.</p>-->
+<!--                            <a th:href="@{/shop/category/{id}(id=${category.id})}" class="btn btn-outline-primary">View Products</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="text-center mt-4">-->
+<!--                <a th:href="@{/shop}" class="btn btn-outline-primary">View All Categories</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        -->
+<!--        &lt;!&ndash; Featured Products &ndash;&gt;-->
+<!--        <div class="bg-light py-5">-->
+<!--            <div class="container">-->
+<!--                <h2 class="text-center mb-4">Featured Products</h2>-->
+<!--                <div class="row g-4">-->
+<!--                    <div class="col-md-3" th:each="product : ${products}" th:if="${productStat.index < 4}">-->
+<!--                        <div class="card h-100 shadow-sm product-card">-->
+<!--                            <img th:src="${product.imageUrl != null ? product.imageUrl : '/images/placeholder.jpg'}" -->
+<!--                                 class="card-img-top" alt="Product Image" height="200">-->
+<!--                            <div class="card-body">-->
+<!--                                <h5 class="card-title" th:text="${product.name}">Product Name</h5>-->
+<!--                                <p class="card-text text-muted" th:text="${#strings.abbreviate(product.description, 50)}">Product description here.</p>-->
+<!--                                <p class="fw-bold text-primary" th:text="${'$' + product.price}">$9.99</p>-->
+<!--                                <div class="d-flex justify-content-between">-->
+<!--                                    <a th:href="@{/shop/product/{id}(id=${product.id})}" class="btn btn-sm btn-outline-primary">View Details</a>-->
+<!--                                    <button class="btn btn-sm btn-primary">-->
+<!--                                        <i class="bi bi-cart-plus"></i> Add to Cart-->
+<!--                                    </button>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="text-center mt-4">-->
+<!--                    <a th:href="@{/shop}" class="btn btn-outline-primary">View All Products</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        -->
+<!--        &lt;!&ndash; Features &ndash;&gt;-->
+<!--        <div class="container my-5">-->
+<!--            <div class="row g-4">-->
+<!--                <div class="col-md-4">-->
+<!--                    <div class="text-center">-->
+<!--                        <i class="bi bi-truck fs-1 text-primary mb-3"></i>-->
+<!--                        <h5>Free Shipping</h5>-->
+<!--                        <p class="text-muted">Free shipping on orders over $50.</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-md-4">-->
+<!--                    <div class="text-center">-->
+<!--                        <i class="bi bi-arrow-repeat fs-1 text-primary mb-3"></i>-->
+<!--                        <h5>Easy Returns</h5>-->
+<!--                        <p class="text-muted">30-day return policy for all products.</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-md-4">-->
+<!--                    <div class="text-center">-->
+<!--                        <i class="bi bi-shield-check fs-1 text-primary mb-3"></i>-->
+<!--                        <h5>Secure Payment</h5>-->
+<!--                        <p class="text-muted">Your payment information is always safe.</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
+<!--</body>-->
+<!--</html>-->
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" 
-      th:replace="layouts/main-layout :: layout('Home', ~{::section})">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+</head>
 <body>
-    <section>
-        <!-- Hero Section -->
-        <div class="bg-light py-5">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <h1 class="display-4 fw-bold">Freshland Grocery Store</h1>
-                        <p class="lead">Your neighborhood grocery store with fresh products and friendly service.</p>
-                        <a th:href="@{/shop}" class="btn btn-primary btn-lg">Shop Now</a>
-                    </div>
-                    <div class="col-md-6">
-                        <img th:src="@{/images/hero-grocery.jpg}" class="img-fluid rounded" alt="Freshland Store">
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Featured Categories -->
-        <div class="container my-5">
-            <h2 class="text-center mb-4">Browse Categories</h2>
-            <div class="row g-4">
-                <div class="col-md-4" th:each="category : ${categories}" th:if="${categoryStat.index < 3}">
-                    <div class="card h-100 shadow-sm category-card">
-                        <div class="card-body text-center">
-                            <i class="bi bi-basket fs-1 text-primary mb-3"></i>
-                            <h5 class="card-title" th:text="${category.name}">Category Name</h5>
-                            <p class="card-text" th:text="${category.description}">Category description here.</p>
-                            <a th:href="@{/shop/category/{id}(id=${category.id})}" class="btn btn-outline-primary">View Products</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-4">
-                <a th:href="@{/shop}" class="btn btn-outline-primary">View All Categories</a>
-            </div>
-        </div>
-        
-        <!-- Featured Products -->
-        <div class="bg-light py-5">
-            <div class="container">
-                <h2 class="text-center mb-4">Featured Products</h2>
-                <div class="row g-4">
-                    <div class="col-md-3" th:each="product : ${products}" th:if="${productStat.index < 4}">
-                        <div class="card h-100 shadow-sm product-card">
-                            <img th:src="${product.imageUrl != null ? product.imageUrl : '/images/placeholder.jpg'}" 
-                                 class="card-img-top" alt="Product Image" height="200">
-                            <div class="card-body">
-                                <h5 class="card-title" th:text="${product.name}">Product Name</h5>
-                                <p class="card-text text-muted" th:text="${#strings.abbreviate(product.description, 50)}">Product description here.</p>
-                                <p class="fw-bold text-primary" th:text="${'$' + product.price}">$9.99</p>
-                                <div class="d-flex justify-content-between">
-                                    <a th:href="@{/shop/product/{id}(id=${product.id})}" class="btn btn-sm btn-outline-primary">View Details</a>
-                                    <button class="btn btn-sm btn-primary">
-                                        <i class="bi bi-cart-plus"></i> Add to Cart
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center mt-4">
-                    <a th:href="@{/shop}" class="btn btn-outline-primary">View All Products</a>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Features -->
-        <div class="container my-5">
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="text-center">
-                        <i class="bi bi-truck fs-1 text-primary mb-3"></i>
-                        <h5>Free Shipping</h5>
-                        <p class="text-muted">Free shipping on orders over $50.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="text-center">
-                        <i class="bi bi-arrow-repeat fs-1 text-primary mb-3"></i>
-                        <h5>Easy Returns</h5>
-                        <p class="text-muted">30-day return policy for all products.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="text-center">
-                        <i class="bi bi-shield-check fs-1 text-primary mb-3"></i>
-                        <h5>Secure Payment</h5>
-                        <p class="text-muted">Your payment information is always safe.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<h1>Home Page</h1>
 </body>
 </html>
