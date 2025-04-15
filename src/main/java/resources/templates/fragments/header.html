@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <!-- Header Fragment -->
+    <header th:fragment="header">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" th:href="@{/}">
+                    <span class="fw-bold">Freshland</span> Store
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                        data-bs-target="#navbarMain" aria-controls="navbarMain" 
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarMain">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" th:classappend="${#httpServletRequest.getRequestURI() == '/' ? 'active' : ''}" 
+                               th:href="@{/}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:classappend="${#httpServletRequest.getRequestURI().startsWith('/shop') ? 'active' : ''}" 
+                               th:href="@{/shop}">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:classappend="${#httpServletRequest.getRequestURI() == '/about' ? 'active' : ''}" 
+                               th:href="@{/about}">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:classappend="${#httpServletRequest.getRequestURI() == '/contact' ? 'active' : ''}" 
+                               th:href="@{/contact}">Contact</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex me-2" th:action="@{/shop/search}" method="get">
+                        <input class="form-control me-2" type="search" placeholder="Search products" 
+                               aria-label="Search" name="keyword">
+                        <button class="btn btn-outline-light" type="submit">Search</button>
+                    </form>
+                    <div class="d-flex">
+                        <a th:href="@{/login}" class="btn btn-outline-light me-2">Login</a>
+                        <a th:href="@{/register}" class="btn btn-light">Register</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+</body>
+</html>

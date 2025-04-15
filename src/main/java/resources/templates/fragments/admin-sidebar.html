@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div th:fragment="sidebar" class="bg-dark text-white p-3 sidebar" style="min-height: calc(100vh - 56px);">
+        <div class="d-flex flex-column">
+            <h5 class="mb-4 py-2 border-bottom">Admin Dashboard</h5>
+            
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a th:href="@{/admin}" class="nav-link text-white" 
+                       th:classappend="${#httpServletRequest.getRequestURI() == '/admin' ? 'active' : ''}">
+                        <i class="bi bi-speedometer2 me-2"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/admin/products}" class="nav-link text-white"
+                       th:classappend="${#httpServletRequest.getRequestURI().startsWith('/admin/products') ? 'active' : ''}">
+                        <i class="bi bi-box-seam me-2"></i> Products
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/admin/categories}" class="nav-link text-white"
+                       th:classappend="${#httpServletRequest.getRequestURI().startsWith('/admin/categories') ? 'active' : ''}">
+                        <i class="bi bi-tags me-2"></i> Categories
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/admin/orders}" class="nav-link text-white"
+                       th:classappend="${#httpServletRequest.getRequestURI().startsWith('/admin/orders') ? 'active' : ''}">
+                        <i class="bi bi-cart-check me-2"></i> Orders
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/admin/users}" class="nav-link text-white"
+                       th:classappend="${#httpServletRequest.getRequestURI().startsWith('/admin/users') ? 'active' : ''}">
+                        <i class="bi bi-people me-2"></i> Users
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/admin/reports}" class="nav-link text-white"
+                       th:classappend="${#httpServletRequest.getRequestURI().startsWith('/admin/reports') ? 'active' : ''}">
+                        <i class="bi bi-bar-chart me-2"></i> Reports
+                    </a>
+                </li>
+            </ul>
+            
+            <hr>
+            <div class="dropdown">
+                <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" 
+                   id="dropdownUser" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-person-circle me-2 fs-5"></i>
+                    <strong>Admin</strong>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser">
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      th:replace="layouts/admin-layout :: layout(${product.id != null ? 'Edit Product' : 'Add New Product'}, ~{::div})">
+<body>
+    <div>
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0" th:text="${product.id != null ? 'Edit Product' : 'Add New Product'}">Add New Product</h5>
+            </div>
+            <div class="card-body">
+                <form th:action="${product.id != null ? '/admin/products/edit/' + product.id : '/admin/products/create'}" 
+                      method="post" th:object="${product}" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Product Name *</label>
+                                <input type="text" class="form-control" id="name" th:field="*{name}" required>
+                                <div class="invalid-feedback" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">
+                                    Please provide a valid product name.
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Description</label>
+                                <textarea class="form-control" id="description" th:field="*{description}" rows="4"></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="price" class="form-label">Price *</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="number" class="form-control" id="price" th:field="*{price}" step="0.01" min="0" required>
+                                </div>
+                                <div class="invalid-feedback" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">
+                                    Please provide a valid price.
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="quantity" class="form-label">Quantity *</label>
+                                <input type="number" class="form-control" id="quantity" th:field="*{quantity}" min="0" required>
+                                <div class="invalid-feedback" th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}">
+                                    Please provide a valid quantity.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="categoryId" class="form-label">Category</label>
+                                <select class="form-select" id="categoryId" th:field="*{categoryId}">
+                                    <option value="">-- Select Category --</option>
+                                    <option th:each="category : ${categories}" 
+                                            th:value="${category.id}" 
+                                            th:text="${category.name}">
+                                        Category Name
+                                    </option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="productImage" class="form-label">Product Image</label>
+                                <input type="file" class="form-control" id="productImage" name="productImage" accept="image/*">
+                                <small class="form-text text-muted">Upload a new image to replace the current one.</small>
+                            </div>
+                            
+                            <div class="mb-3" th:if="${product.imageUrl != null}">
+                                <label class="form-label">Current Image</label>
+                                <div class="card">
+                                    <img th:src="${product.imageUrl}" class="card-img-top" alt="Current Product Image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between mt-4">
+                        <a th:href="@{/admin/products}" class="btn btn-secondary">Cancel</a>
+                        <button type="submit" class="btn btn-primary">Save Product</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,131 @@
+/* Main Styles for Freshland Store */
+
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+}
+
+/* Product Cards */
+.product-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.product-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Category Cards */
+.category-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #4e73df;
+    border-color: #4e73df;
+}
+
+.btn-primary:hover {
+    background-color: #2e59d9;
+    border-color: #2e59d9;
+}
+
+/* Admin sidebar */
+.sidebar {
+    transition: all 0.3s;
+}
+
+.sidebar .nav-link {
+    border-radius: 0.25rem;
+    transition: all 0.3s;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.2rem;
+}
+
+.sidebar .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar .nav-link.active {
+    background-color: #4e73df;
+}
+
+/* Dashboard cards */
+.dashboard-card {
+    transition: transform 0.3s;
+    border-left: 5px solid;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+}
+
+.dashboard-card.primary {
+    border-left-color: #4e73df;
+}
+
+.dashboard-card.success {
+    border-left-color: #1cc88a;
+}
+
+.dashboard-card.warning {
+    border-left-color: #f6c23e;
+}
+
+.dashboard-card.danger {
+    border-left-color: #e74a3b;
+}
+
+/* Forms */
+.form-control:focus, .form-select:focus {
+    border-color: #bac8f3;
+    box-shadow: 0 0 0 0.25rem rgba(78, 115, 223, 0.25);
+}
+
+/* Login and Register pages */
+.auth-form {
+    max-width: 450px;
+    margin: 3rem auto;
+}
+
+/* Footer */
+.footer {
+    background-color: #222;
+}
+
+/* Product detail page */
+.product-details .price {
+    font-size: 1.8rem;
+    color: #4e73df;
+}
+
+.quantity-control {
+    max-width: 150px;
+}
+
+/* Cart styles */
+.cart-item {
+    border-bottom: 1px solid #eee;
+    padding: 1rem 0;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
